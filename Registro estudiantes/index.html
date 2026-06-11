@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Estudiantes</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header class="encabezado">
+        <div class="marca">
+            <span class="marca-icono" aria-hidden="true">RE</span>
+            <div>
+                <h1>Registro de Estudiantes</h1>
+                <p>Gestión académica local</p>
+            </div>
+        </div>
+        <div class="contador">
+            <strong id="studentCount">0</strong>
+            <span>registrados</span>
+        </div>
+    </header>
+
+    <main class="page-container">
+        <section class="form-container" aria-labelledby="formTitle">
+            <div class="section-title">
+                <div>
+                    <span class="sobrelinea">Datos del estudiante</span>
+                    <h2 id="formTitle">Nuevo registro</h2>
+                </div>
+                <button id="cancelEdit" class="boton-icono oculto" type="button" title="Cancelar edición" aria-label="Cancelar edición">×</button>
+            </div>
+
+            <form id="studentForm" novalidate>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="cedula">Cédula</label>
+                        <input type="text" id="cedula" inputmode="numeric" maxlength="10" placeholder="10 dígitos" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" id="apellidos" maxlength="60" placeholder="Ej. Pérez López" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombres">Nombres</label>
+                        <input type="text" id="nombres" maxlength="60" placeholder="Ej. Andrea Sofía" required>
+                    </div>
+                    <div class="form-group campo-completo">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" id="direccion" maxlength="100" placeholder="Calle, número y ciudad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="text" id="telefono" inputmode="tel" maxlength="10" placeholder="Ej. 0991234567" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo electrónico</label>
+                        <input type="email" id="correo" maxlength="100" placeholder="nombre@correo.com" required>
+                    </div>
+                    <div class="form-group campo-completo">
+                        <label for="facultad">Facultad</label>
+                        <input type="text" id="facultad" maxlength="80" placeholder="Ej. Ciencias e Ingeniería" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nivel">Nivel</label>
+                        <input type="text" id="nivel" maxlength="20" placeholder="Ej. Cuarto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="paralelo">Paralelo</label>
+                        <input type="text" id="paralelo" maxlength="2" placeholder="Ej. A" required>
+                    </div>
+                </div>
+
+                <p id="formMessage" class="form-message" role="alert"></p>
+
+                <div class="form-actions">
+                    <button id="submitButton" class="boton-principal" type="submit">Registrar estudiante</button>
+                    <button id="clearButton" class="boton-secundario" type="button">Limpiar</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="table-container" aria-labelledby="listTitle">
+            <div class="table-header">
+                <div>
+                    <span class="sobrelinea">Directorio académico</span>
+                    <h2 id="listTitle">Estudiantes guardados</h2>
+                </div>
+                <label class="buscador">
+                    <span aria-hidden="true">⌕</span>
+                    <input id="searchInput" type="search" placeholder="Buscar estudiante">
+                </label>
+            </div>
+
+            <div class="table-scroll">
+                <table id="studentsTable">
+                    <thead>
+                        <tr>
+                            <th>Estudiante</th>
+                            <th>Contacto</th>
+                            <th>Facultad</th>
+                            <th>Curso</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div id="emptyState" class="empty-state">
+                    <span aria-hidden="true">+</span>
+                    <h3>No hay estudiantes registrados</h3>
+                    <p>Los registros aparecerán aquí automáticamente.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
